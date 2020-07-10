@@ -2,14 +2,15 @@ class Player
   def hand
     puts "数字を入力してください。"
     puts "0:グー, 1:チョキ, 2:パー"
-    input_hand = gets.to_i
+    input_hand = gets
       while true
-        if input_hand == 0 || input_hand == 1 || input_hand == 2
-          return input_hand
+        # 正規表現を使って整数かどうかを判断しました
+        if /^[0-9]+$/ =~ input_hand.to_s && (input_hand.to_i == 0 || input_hand.to_i == 1 || input_hand.to_i == 2)
+          return input_hand.to_i
         else
           puts "もう一度数字を入力してください。"
           puts "0:グー, 1:チョキ, 2:パー"
-          input_hand = gets.to_i
+          input_hand = gets
         end
       end
   end
